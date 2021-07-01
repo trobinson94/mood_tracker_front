@@ -3,7 +3,6 @@ import SingleMood from "./pages/SingleMood";
 import EntryForm from "./pages/EntryForm";
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import SinglePost from "../../../../todofront/src/pages/SinglePost";
 
 function App(props) {
 
@@ -27,45 +26,57 @@ function App(props) {
   // Functions
   ////////////////////
 
+  const getMoods = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    setMoods(data);
+  };
 
+  // const addMoods
+
+  // const getTargetMood
+
+  // const updateMood
+
+  // const deleteMood
 
   ////////////////////
   // useEffects
   ////////////////////
 
-
+  useEffect(() => {
+    getMoods();
+  }, []);
 
   ////////////////////
   // Returned JSX
   ////////////////////
 
-  return (
-    <div className="App">
+  return <div className="App">
       <h1>All Mood Entries</h1>
       <Switch>
         <Route
           exact
           path="/"
-          render={(routerProps) => <AllMoods {...rp} moods={moods} />}
+          render={(rp) => <AllMoods moods={moods} {...rp} />}
         />
         <Route
           exact
           path="/mood/:id"
-          render={(routerProps) => <SinglePost {...rp} moods={moods} />}
+          render={(rp) => <SingleMood {...rp} moods={moods} />}
         />
         <Route
           exact
           path="/new"
-          render={(routerProps) => <EntryForm {...rp} />}
+          render={(rp) => <EntryForm {...rp} />}
         />
         <Route
           exact
           path="/edit"
-          render={(routerProps) => <EntryForm {...rp} />}
+          render={(rp) => <EntryForm {...rp} />}
         />
       </Switch>
     </div>
-  );
 }
 
 export default App;

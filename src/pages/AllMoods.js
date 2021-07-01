@@ -1,7 +1,9 @@
 import React from "react";
+import Mood from "../components/mood";
 
 const AllMoods = (props) => {
-    return <h1>All Moods</h1>;
-}
+    console.log("this is the allmodds page")
+    return props.moods.map((mood) => <Mood mood={mood} key={mood.id} />);
+};
 
 export default AllMoods;
