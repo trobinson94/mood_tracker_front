@@ -2,7 +2,7 @@ import AllMoods from "./pages/AllMoods";
 import SingleMood from "./pages/SingleMood";
 import EntryForm from "./pages/EntryForm";
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
 function App(props) {
 
@@ -22,6 +22,14 @@ function App(props) {
   // State to hold log of moods
   const [moods, setMoods] = useState([]);
 
+  const nullMood = {
+    score: "",
+    notes: "",
+    meds: ""
+  };
+
+  const [targetMood, setTargetMood] = useState(nullMood);
+
   ////////////////////
   // Functions
   ////////////////////
@@ -32,13 +40,43 @@ function App(props) {
     setMoods(data);
   };
 
-  // const addMoods
+  const addMoods = async (newMood) => {
+    const response = await fetch(url, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMood),
+    });
 
-  // const getTargetMood
+    getMoods();
+  }
 
-  // const updateMood
+  const getTargetMood = (mood) => {
+    setTargetMood(mood);
+    props.history.push("/edit");
+  };
 
-  // const deleteMood
+  const updateMood = async (mood) => {
+    const response = await fetch(url + mood.id + "/", {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mood),
+    });
+
+    getMoods();
+  }
+
+  const deleteMood = async (mood) => {
+    const response = await fetch (url + mood.id + "/", {
+      method: "delete",
+    });
+
+    getMoods();
+    props.history.push("/");
+  }
 
   ////////////////////
   // useEffects
@@ -54,6 +92,7 @@ function App(props) {
 
   return <div className="App">
       <h1>All Mood Entries</h1>
+      <Link to="/new"><button>Add new mood entry</button></Link>
       <Switch>
         <Route
           exact
@@ -61,19 +100,33 @@ function App(props) {
           render={(rp) => <AllMoods moods={moods} {...rp} />}
         />
         <Route
-          exact
           path="/mood/:id"
-          render={(rp) => <SingleMood {...rp} moods={moods} />}
+          render={(rp) => 
+            <SingleMood 
+              {...rp} 
+              moods={moods} 
+              edit={getTargetMood}
+              deleteMood={deleteMood} />}
         />
         <Route
-          exact
           path="/new"
-          render={(rp) => <EntryForm {...rp} />}
+          render={(rp) => 
+            <EntryForm 
+              {...rp}
+              initialMood={nullMood}
+              handleSubmit={addMoods}
+              buttonLabel="Add entry" 
+            />}
         />
         <Route
-          exact
           path="/edit"
-          render={(rp) => <EntryForm {...rp} />}
+          render={(rp) => 
+            <EntryForm 
+              {...rp} 
+              initialMood={targetMood}
+              handleSubmit={updateMood}
+              buttonLabel="Update Entry"
+            />}
         />
       </Switch>
     </div>
