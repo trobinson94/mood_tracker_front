@@ -7,15 +7,21 @@ const SingleMood = ({ moods, match, edit, deleteMood }) => {
 
     return (
         <div>
-            <h1>{mood.score}</h1>
-            <h2>{mood.notes}</h2>
-            <h2>{mood.meds}</h2>
-            <button onClick={(event) => edit(mood)}>Edit</button>
-            <button onClick={(event) => deleteMood(mood)}>Delete</button>
-            <Link to="/">
-                <button>View All</button>
-            </Link>
-        </div>
+            <div className="card">
+                <div id="container">
+                    <h1>{mood.score}</h1>
+                    <h2>{mood.notes}</h2>
+                    <h2>Meds taken: {mood.meds.toString()}</h2>
+                </div> 
+            </div>
+            <div className="options">
+                <button id="submit" onClick={(event) => edit(mood)}>Edit</button>
+                <button id="submit" onClick={(event) => deleteMood(mood)}>Delete</button>
+                <Link to="/">
+                    <button id="submit">View All</button>
+                </Link>
+            </div>
+         </div>
     )
 }
 

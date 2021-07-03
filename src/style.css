@@ -1,0 +1,55 @@
+.header {
+    background: #9381ff;
+    text-align: center;
+    padding: 40px;
+    color: #f8f7ff;
+}
+
+.App {
+    background: #F8F7FF;
+    height: 100vh;
+}
+
+#button,
+#submit {
+    background: #FFEEDD;
+    border: 0.1rem solid #FFD8BE; 
+    color: #9381ff; 
+}
+
+#submit {
+    margin: 10px;
+}
+
+.main-btn {
+    margin: 20px auto;
+    display: block;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 50px 150px;
+    background: #B8B8FF;
+    color: #F8F7FF;
+    border-radius: 20px;
+}
+
+#container {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+input[type="radio"] {
+    margin: 10px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}

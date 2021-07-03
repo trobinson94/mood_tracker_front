@@ -20,73 +20,82 @@ const EntryForm = ({ initialMood, handleSubmit, buttonLabel, history }) => {
     }
 
     return (
-        <form onSubmit={handleSubmission}>
+        <div>
+        <div className="card">
 
-            <input 
-                onChange={handleChange}
-                type="radio" 
-                id="data" 
-                name="score" 
-                value="1"
-            />
-                <label for="1">1 - Very Bad</label>
-            <input 
-                onChange={handleChange}
-                type="radio" 
-                id="data" 
-                name="score" 
-                value="2"
-            />
-                <label for="2">2 - Bad</label>
-            <input 
-                onChange={handleChange}
-                type="radio" 
-                id="data" 
-                name="score" 
-                value="3"
-            />
-                <label for="3">3 - Meh</label>
-            <input 
-                onChange={handleChange}
-                type="radio" 
-                id="data" 
-                name="score" 
-                value="4"
-            />
-                <label for="4">4 - Good</label>
-            <input 
-                onChange={handleChange}
-                type="radio" 
-                id="data" 
-                name="score" 
-                value="5"
-            />
-                <label for="5">5 - Rad</label>
+            <div id="container">
+                <form onSubmit={handleSubmission}>
 
-            <input
-                type="text"
-                onChange={handleChange}
-                value={formData.notes}
-                name="notes"
-            />
-            <h3>Did you take your meds?</h3>
-            <input
-                type="radio"
-                onChange={handleChange}
-                value={true}
-                name="meds"
-            />
-            <label for="yes meds">Yes</label>
-            <input
-                type="radio"
-                onChange={handleChange}
-                value={false}
-                name="meds"
-            />
-            <label for="no meds">No</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="Very Bad"
+                    />
+                        <label for="1">1 - Very Bad</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="Bad"
+                    />
+                        <label for="2">2 - Bad</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="Meh"
+                    />
+                        <label for="3">3 - Meh</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="Good"
+                    />
+                        <label for="4">4 - Good</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="&#128528;"
+                    />
+                        <label for="5">&#128528;</label>
+                    <h3>Notes</h3>
+                    <input
+                        type="text"
+                        onChange={handleChange}
+                        value={formData.notes}
+                        name="notes"
+                    />
+                    <h3>Did you take your meds?</h3>
+                    <input
+                        type="radio"
+                        onChange={handleChange}
+                        value={true}
+                        name="meds"
+                    />
+                    <label for="yes meds">Yes</label>
+                    <input
+                        type="radio"
+                        onChange={handleChange}
+                        value={false}
+                        name="meds"
+                    />
+                    <label for="no meds">No</label>
 
-            <input type="submit" value={buttonLabel} />
-        </form>
+                    <input type="submit" id="submit" value={buttonLabel}/>
+                </form>
+            </div>
+            
+        </div>
+        
+        </div>
     )
 }
 

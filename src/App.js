@@ -1,3 +1,4 @@
+import "./style.css"
 import AllMoods from "./pages/AllMoods";
 import SingleMood from "./pages/SingleMood";
 import EntryForm from "./pages/EntryForm";
@@ -91,8 +92,12 @@ function App(props) {
   ////////////////////
 
   return <div className="App">
-      <h1>All Mood Entries</h1>
-      <Link to="/new"><button>Add new mood entry</button></Link>
+      <div className="header">
+        <h1>PerkUp!</h1>
+      </div>
+      
+
+      <Link to="/new"><button id="button" className="main-btn">Add new mood entry</button></Link>
       <Switch>
         <Route
           exact
