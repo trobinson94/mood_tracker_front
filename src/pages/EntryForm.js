@@ -22,7 +22,7 @@ const EntryForm = ({ initialMood, handleSubmit, buttonLabel, history }) => {
     return (
         <div>
         <div className="card">
-
+        
             <div id="container">
                 <form onSubmit={handleSubmission}>
 
@@ -31,33 +31,17 @@ const EntryForm = ({ initialMood, handleSubmit, buttonLabel, history }) => {
                         type="radio" 
                         id="data" 
                         name="score" 
-                        value="Very Bad"
+                        value="&#128555;"
                     />
-                        <label for="1">1 - Very Bad</label>
+                        <label for="1" className="emoticon">&#128555;</label>
                     <input 
                         onChange={handleChange}
                         type="radio" 
                         id="data" 
                         name="score" 
-                        value="Bad"
+                        value="&#128533;"
                     />
-                        <label for="2">2 - Bad</label>
-                    <input 
-                        onChange={handleChange}
-                        type="radio" 
-                        id="data" 
-                        name="score" 
-                        value="Meh"
-                    />
-                        <label for="3">3 - Meh</label>
-                    <input 
-                        onChange={handleChange}
-                        type="radio" 
-                        id="data" 
-                        name="score" 
-                        value="Good"
-                    />
-                        <label for="4">4 - Good</label>
+                        <label for="2" className="emoticon">&#128533;</label>
                     <input 
                         onChange={handleChange}
                         type="radio" 
@@ -65,10 +49,28 @@ const EntryForm = ({ initialMood, handleSubmit, buttonLabel, history }) => {
                         name="score" 
                         value="&#128528;"
                     />
-                        <label for="5">&#128528;</label>
+                        <label for="3" className="emoticon">&#128528;</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="&#128522;"
+                    />
+                        <label for="4" className="emoticon">&#128522;</label>
+                    <input 
+                        onChange={handleChange}
+                        type="radio" 
+                        id="data" 
+                        name="score" 
+                        value="&#128513;"
+                    />
+                    <label for="5" className="emoticon">&#128513;</label>
+                    <span></span>
                     <h3>Notes</h3>
                     <input
                         type="text"
+                        id="text"
                         onChange={handleChange}
                         value={formData.notes}
                         name="notes"
@@ -88,7 +90,7 @@ const EntryForm = ({ initialMood, handleSubmit, buttonLabel, history }) => {
                         name="meds"
                     />
                     <label for="no meds">No</label>
-
+                    <span></span>
                     <input type="submit" id="submit" value={buttonLabel}/>
                 </form>
             </div>

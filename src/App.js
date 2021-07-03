@@ -93,7 +93,7 @@ function App(props) {
 
   return <div className="App">
       <div className="header">
-        <h1>PerkUp!</h1>
+        <Link to="/"><h1 id="logo">Perk<strong>Up</strong>!</h1></Link>
       </div>
       
 

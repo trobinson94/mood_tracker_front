@@ -1,11 +1,16 @@
 .header {
     background: #9381ff;
     text-align: center;
-    padding: 40px;
+    padding: 30px;
     color: #f8f7ff;
+    font-family: 'Yomogi', cursive;
 }
 
-.App {
+#logo {
+    font-size: 8rem;
+}
+
+body {
     background: #F8F7FF;
     height: 100vh;
 }
@@ -15,6 +20,13 @@
     background: #FFEEDD;
     border: 0.1rem solid #FFD8BE; 
     color: #9381ff; 
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: #f8f7ff;;
 }
 
 #submit {
@@ -37,12 +49,14 @@
 
 #container {
     padding: 20px;
+    text-align: center;
 }
 
 form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 input[type="radio"] {
@@ -52,4 +66,24 @@ input[type="radio"] {
 .options {
     display: flex;
     justify-content: center;
+}
+
+.emoticon {
+    font-size: 4em;
+}
+
+h3 {
+    display: block;
+}
+
+span {
+    width: 100%;
+}
+
+#time {
+    /* float: right;
+    margin-top: 2rem;
+    margin-right: 3rem; */
+    font-size: larger;
+    color: black;
 }

@@ -9,9 +9,10 @@ const SingleMood = ({ moods, match, edit, deleteMood }) => {
         <div>
             <div className="card">
                 <div id="container">
-                    <h1>{mood.score}</h1>
+                <h2 id="time">{mood.created_at.slice(0, 10)}</h2>
+                    <h1 className="emoticon">{mood.score}</h1>
                     <h2>{mood.notes}</h2>
-                    <h2>Meds taken: {mood.meds.toString()}</h2>
+                    <h2><strong>Meds taken:</strong> {mood.meds.toString()}</h2>
                 </div> 
             </div>
             <div className="options">
